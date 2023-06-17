@@ -96,7 +96,7 @@ class UserAccounts(AbstractBaseUser) :
     )
     user_role   = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=False, null=False, default=4)
 
-    is_verified     = models.BooleanField(default=True)
+    is_verified     = models.BooleanField(default=False)
 
     is_admin        = models.BooleanField(default=False)
     is_superuser    = models.BooleanField(default=False)
