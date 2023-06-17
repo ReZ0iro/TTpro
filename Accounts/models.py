@@ -69,7 +69,7 @@ class UserAccounts(AbstractBaseUser) :
 
     username   = models.CharField(max_length=50, unique=True, null=False, blank=False)
 
-    phone_number = models.IntegerField(max_length=13, unique=True, null=True, blank=True)
+    phone_number = models.IntegerField(unique=True, null=True, blank=True)
 
     email   = models.EmailField(max_length=75 , unique=True, blank=True, null=True)
 
