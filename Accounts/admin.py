@@ -8,3 +8,5 @@ class AdminUserAccounts(UserAdmin) :
     filter_horizontal = ("following",)
     list_filter = ("following",)
     fieldsets = ()
+
+admin.site.register(UserAccounts , AdminUserAccounts)

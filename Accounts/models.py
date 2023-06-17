@@ -69,7 +69,7 @@ class UserAccounts(AbstractBaseUser) :
 
     username   = models.CharField(max_length=50, unique=True, null=False, blank=False)
 
-    phone_number = models.IntegerField(unique=True, null=True, blank=True)
+    phone_number = models.CharField(max_length=14 ,unique=True, null=True, blank=True)
 
     email   = models.EmailField(max_length=75 , unique=True, blank=True, null=True)
 
@@ -115,7 +115,7 @@ class UserAccounts(AbstractBaseUser) :
 
 
     def has_perm(self, perm, obj=None):
-        return self.is_staff
+        return self.is_superuser
 
     def has_module_perms(self, app_label):
         return True  
