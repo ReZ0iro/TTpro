@@ -14,6 +14,6 @@ def UserContentPostsQueries(id) :
     The posts and contents thath a user upload !
 
     """
-    first_query = UserPost.objects.filter(id = id)
+    first_query = UserPost.objects.filter(the_user = id)
     
     return first_query 
