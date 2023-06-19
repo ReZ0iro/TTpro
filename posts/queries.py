@@ -11,7 +11,7 @@ from django.contrib.auth import get_user_model
 def UserContentPostsQueries(id) : 
     """
     
-    The posts and contents thath a user upload !
+    The posts and contents that a user upload !
 
     """
     first_query = UserPost.objects.filter(the_user = id)

@@ -14,6 +14,11 @@ from posts.serializer import *
 # Create your views here.
 
 class TheUserPosts(APIView) : 
+    """
+
+    Its for showing The posts of the specified user !
+
+    """
 
     def get(self, request, id) :
 
