@@ -7,6 +7,7 @@ class UserPost(models.Model) :
 
     the_user    = models.ForeignKey("Accounts.UserAccounts" , on_delete=models.CASCADE)
 
+    post_upload_time    = models.DateTimeField(auto_now_add=True)
 
 class UserComments(models.Model) : 
 
@@ -15,4 +16,7 @@ class UserComments(models.Model) :
     user_comment    = models.ForeignKey("Accounts.UserAccounts", on_delete=models.CASCADE) 
 
     user_post       = models.ForeignKey(UserPost , on_delete=models.CASCADE, blank=False, null=False) 
+
+    commment_upload_time     = models.DateTimeField(auto_now_add=True)
+
 
