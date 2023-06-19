@@ -13,7 +13,7 @@ from posts.serializer import *
 
 # Create your views here.
 
-class UserPosts(APIView) : 
+class TheUserPosts(APIView) : 
 
     def get(self, request, id) :
 
