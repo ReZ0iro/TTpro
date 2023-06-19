@@ -12,7 +12,17 @@ class UserPostsSerializer(serializers.ModelSerializer) :
     """
     class Meta : 
         
-        model = UserPost
+        model   = UserPost
 
-        fields = "__all__"
+        fields  = "__all__"
+class UserCommentsSerializer(serializers.ModelSerializer) : 
+    """
     
+    For Serializing UserComments
+    
+    """
+    class Meta : 
+        
+        model   = UserComments
+
+        fields  = "__all__"

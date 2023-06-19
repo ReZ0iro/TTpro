@@ -4,4 +4,5 @@ from posts.views import *
 
 urlpatterns = [
      path("posts/<int:id>/" , UserPosts.as_view()) ,
+     path("commmentThePost/" , CommentThePost.as_view())
 ]
