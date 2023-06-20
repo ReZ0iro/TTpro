@@ -1,7 +1,9 @@
 from django.urls import path 
 
+from Accounts.views import *
+
 #
 
 urlpatterns = [
-    # path()
+    path("AddAdmin/" , AddAdminBySuperAdmin.as_view()) , 
 ]

@@ -22,10 +22,12 @@ class UserAccountsManager(BaseUserManager):
 
         if not username :
             raise ValueError("Please Enter Username !")
+        if not email    : 
+            raise ValueError("Please Enter email !")
         
         user = self.model(
             username    = username , 
-            email       = email , 
+            email       = self.normalize_email(email) , 
             first_name  = first_name , 
             last_name   = last_name ,
             phone_number = phone_number , 
@@ -43,9 +45,12 @@ class UserAccountsManager(BaseUserManager):
         
         if not username : 
             raise ValueError("Please Enter Username !")
+        if not email : 
+            raise ValueError("please Enter Email !")
         
         user = self.model(
-            username = username      ,
+            username    = username      ,
+            email       = self.normalize_email(email) ,
             first_name  = first_name , 
             last_name   = last_name  ,
         )
