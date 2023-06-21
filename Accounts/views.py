@@ -92,7 +92,44 @@ class UserDetails(APIView) :
         serializers = UserSerializer(the_user, data = request.data, partial = True)
 
         serializers.is_valid(raise_exception=True)
-        
+
         serializers.save()
 
         return Response(serializers.data, status = status.HTTP_202_ACCEPTED)
+    
+class DeactiveUser(APIView) : 
+    """
+
+    Its FOr Deactive User By Admin And SuperAdmin !
+    
+    """
+    def get(self, request, id) : 
+
+        the_user    = TheUserDetailsQuery(id = id)
+
+        mode = False
+
+        if the_user.is_active == True : 
+
+            mode = False
+
+        elif the_user.is_active == False : 
+
+            mode = True
+
+        serializers = UserSerializer(
+
+            the_user , 
+
+            data = {"is_active" : mode} ,
+
+            partial = True ,
+
+            )
+        
+        serializers.is_valid()
+
+        serializers.save()
+        
+        return Response(serializers.data , status = status.HTTP_202_ACCEPTED)
+
