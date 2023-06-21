@@ -96,6 +96,14 @@ class UserDetails(APIView) :
         serializers.save()
 
         return Response(serializers.data, status = status.HTTP_202_ACCEPTED)
+    def delete(self, request, id) : 
+
+        the_user    = TheUserDetailsQuery(id = id)
+        
+        the_user.delete()
+
+        return Response(status=status.HTTP_200_OK)
+        
     
 class DeactiveUser(APIView) : 
     """
