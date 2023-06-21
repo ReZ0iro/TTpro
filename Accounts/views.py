@@ -26,11 +26,15 @@ class AddAdminBySuperAdmin(APIView) :
         serializers = UserSerializer(user)
 
         return Response(serializers.data , status=status.HTTP_201_CREATED)
+class AddUserByAdmin(APIView) : 
+    def post(self, request) : 
+        pass
+
 class UsersList(APIView) : 
     def get(self,request) : 
 
         first_query = UserListQueries()
-        
+
         serializers = UserSerializer(first_query , many = True)
 
         return Response(serializers.data , status=status.HTTP_200_OK)
