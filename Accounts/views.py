@@ -109,12 +109,9 @@ class DeactiveUser(APIView) :
 
         mode = False
 
-        if the_user.is_active == True : 
 
-            mode = False
-
-        elif the_user.is_active == False : 
-
+        if the_user.is_active == False : 
+            
             mode = True
 
         serializers = UserSerializer(
@@ -130,6 +127,33 @@ class DeactiveUser(APIView) :
         serializers.is_valid()
 
         serializers.save()
-        
+
         return Response(serializers.data , status = status.HTTP_202_ACCEPTED)
+
+class DeActiveUserByPostId(APIView) : 
+
+    def post(self, request) : 
+
+        the_user    = TheUserDetailsQuery(id = request.data["id"])
+
+        mode        = False 
+
+        if the_user.is_active == False : 
+
+            mode = True
+
+        serializers = UserSerializer(
+
+            the_user ,
+            data    = {"is_active" : mode} , 
+            partial = True
+
+            )
+        
+        serializers.is_valid(raise_exception=True)
+
+        serializers.save()
+
+        return Response(serializers.data , status=status.HTTP_202_ACCEPTED)
+        
 
