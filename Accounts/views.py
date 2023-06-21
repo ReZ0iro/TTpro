@@ -72,7 +72,7 @@ class UserDetails(APIView) :
     And they can change sth on the user
     
     """
-    def get(self,request,id) : 
+    def get(self, request, id) : 
 
         the_user    = TheUserDetailsQuery(id = id)
 
@@ -80,3 +80,19 @@ class UserDetails(APIView) :
 
         return Response(serializers.data , status=status.HTTP_200_OK)
     
+    def put(self, request, id) : 
+        """
+
+        Its For Changeing UserDetails !By Admin And SuperAdmin !
+
+        """
+
+        the_user    = TheUserDetailsQuery(id = id)
+
+        serializers = UserSerializer(the_user, data = request.data, partial = True)
+
+        serializers.is_valid(raise_exception=True)
+        
+        serializers.save()
+
+        return Response(serializers.data, status = status.HTTP_202_ACCEPTED)
