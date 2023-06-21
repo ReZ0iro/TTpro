@@ -73,5 +73,10 @@ class UserDetails(APIView) :
     
     """
     def get(self,request,id) : 
-        pass
+
+        the_user    = TheUserDetailsQuery(id = id)
+
+        serializers = UserSerializer(the_user)
+
+        return Response(serializers.data , status=status.HTTP_200_OK)
     
