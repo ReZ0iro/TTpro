@@ -10,6 +10,6 @@ def UserListQueries() :
     It should show for admin and SuperAdmin !
 
     """
-    first_query     = get_user_model().objects.filter(role = 4)
-    
+    first_query     = get_user_model().objects.filter(user_role = 4)
+
     return first_query
