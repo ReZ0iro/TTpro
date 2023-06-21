@@ -28,7 +28,17 @@ class AddAdminBySuperAdmin(APIView) :
         return Response(serializers.data , status=status.HTTP_201_CREATED)
 class AddUserByAdmin(APIView) : 
     def post(self, request) : 
-        pass
+
+        serializers     = CreateUserSerializer(data=request.data)
+
+        serializers.is_valid(raise_exception=True)
+
+        user = serializers.save()
+
+        serializers = UserSerializer(user)
+
+        return Response(serializers.data , status=status.HTTP_201_CREATED)
+
 
 class UsersList(APIView) : 
     def get(self,request) : 
