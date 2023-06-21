@@ -53,7 +53,7 @@ class AddUserByAdmin(APIView) :
 class UsersList(APIView) : 
 
     """
-    
+
     it show the users list for Admin And SuperAdmin !
     
     """
@@ -64,3 +64,14 @@ class UsersList(APIView) :
         serializers = UserSerializer(first_query , many = True)
 
         return Response(serializers.data , status=status.HTTP_200_OK)
+
+class UserDetails(APIView) : 
+    """
+
+    it show the user Details for admin and superadmin 
+    And they can change sth on the user
+    
+    """
+    def get(self,request,id) : 
+        pass
+    
