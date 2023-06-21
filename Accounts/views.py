@@ -111,7 +111,7 @@ class DeactiveUser(APIView) :
 
 
         if the_user.is_active == False : 
-            
+
             mode = True
 
         serializers = UserSerializer(
@@ -131,6 +131,11 @@ class DeactiveUser(APIView) :
         return Response(serializers.data , status = status.HTTP_202_ACCEPTED)
 
 class DeActiveUserByPostId(APIView) : 
+    """
+
+    Its FOr Deactive User By Admin And SuperAdmin !
+    
+    """
 
     def post(self, request) : 
 

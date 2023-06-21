@@ -16,7 +16,7 @@ def UserListQueries() :
  
 def TheUserDetailsQuery(id) : 
     """
-    Its For Query and show the user that id is get in url to show details and 
+    Its For Query and show the user that id is get in url or in post body to show details and 
     user data !
 
     """
