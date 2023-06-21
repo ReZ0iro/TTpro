@@ -12,6 +12,7 @@ class UserAccountsManager(BaseUserManager):
         )
 
         user.is_superuser = True
+        user.is_staff     = True
         user.role = 1
         user.set_password(password)
         user.save(using = self._db)
