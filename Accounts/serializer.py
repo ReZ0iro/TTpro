@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer) :
     class Meta : 
 
         model     = get_user_model()
-        fields    = "__all__"
+        fields    = "__all__"       # IT should Change cuase when its all it show the password(HASHED!)
 
 class CreateAdminUserSerializer(serializers.ModelSerializer) :
     class Meta : 
