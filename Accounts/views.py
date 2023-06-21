@@ -14,6 +14,11 @@ from Accounts.queries import *
 # Create your views here.
 
 class AddAdminBySuperAdmin(APIView) :
+    """
+    
+    Its For SuperAdmin TO Create And Add Admin To App !
+    
+    """
 
     def post(self,request) :
         
@@ -26,7 +31,12 @@ class AddAdminBySuperAdmin(APIView) :
         serializers = UserSerializer(user)
 
         return Response(serializers.data , status=status.HTTP_201_CREATED)
-class AddUserByAdmin(APIView) : 
+class AddUserByAdmin(APIView) :
+    """
+    
+    Its For Admin And SuperAdmin To Add Users By them selfs !
+    
+    """
     def post(self, request) : 
 
         serializers     = CreateUserSerializer(data=request.data)
@@ -41,6 +51,12 @@ class AddUserByAdmin(APIView) :
 
 
 class UsersList(APIView) : 
+
+    """
+    
+    it show the users list for Admin And SuperAdmin !
+    
+    """
     def get(self,request) : 
 
         first_query = UserListQueries()
