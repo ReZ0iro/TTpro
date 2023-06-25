@@ -17,4 +17,5 @@ urlpatterns = [
     path("DeactiveUser/" , DeActiveUserByPostId.as_view() ) ,
 
     path("userlist/" , UsersList.as_view()) ,
+    path("userlistP/" , UserListPagination.as_view() ),
 ]

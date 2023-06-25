@@ -3,7 +3,12 @@ from django.shortcuts import render
 # rest_framework : 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status 
+from rest_framework import status
+from rest_framework.generics import ListAPIView
+from rest_framework import filters
+
+# pagination : 
+from Accounts.pagination import CustomPagination
 
 # Serializers : 
 from Accounts.serializer import * 
@@ -64,6 +69,16 @@ class UsersList(APIView) :
         serializers = UserSerializer(first_query , many = True)
 
         return Response(serializers.data , status=status.HTTP_200_OK)
+    
+class UserListPagination(ListAPIView) : 
+
+    queryset            = UserListQueries()
+    serializer_class    = UserSerializer
+    pagination_class    = CustomPagination
+    filter_backends     = [filters.SearchFilter ,filters.OrderingFilter]
+    search_fields       = [ "username" ,]
+    ordering_fields     = ["id" , ]
+    ordering            = ["id",]
 
 class UserDetails(APIView) : 
     """
