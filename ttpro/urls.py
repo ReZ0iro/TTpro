@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include 
+from Accounts.registerUser import RegisterationAPI
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("page/" , include("Accounts.urls")),
-    path("content/" , include("posts.urls"))
+    path("register/", RegisterationAPI.as_view(), name="register") ,
+    path('admin/', admin.site.urls) ,
+    path("page/" , include("Accounts.urls")) ,
+    path("content/" , include("posts.urls")) ,
 
 ]
